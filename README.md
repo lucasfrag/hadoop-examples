@@ -1,7 +1,8 @@
 # Hadoop MapReduce Examples
 
-Este projeto contém uma coleção de jobs MapReduce modernos, úteis para
-estudos, aulas e portfólio profissional.
+Este repositório reúne uma coleção de jobs **MapReduce modernos**, ideais para estudo, aulas, pesquisas e inclusão em portfólio profissional.
+
+------------------------------------------------------------------------
 
 ## 📁 Estrutura do projeto
 
@@ -34,28 +35,28 @@ estudos, aulas e portfólio profissional.
 
 ### 1️⃣ Média de notas por aluno --- `AverageGrade.java`
 
-Entrada: `grades.txt`\
-Saída: média das notas por aluno.
+**Entrada:** `grades.txt`\
+**Saída:** média das notas por aluno.
 
 ### 2️⃣ Contagem de acessos por endpoint --- `EndpointCount.java`
 
-Entrada: `logs.txt`\
-Saída: quantidade de acessos por rota/endpoint.
+**Entrada:** `logs.txt`\
+**Saída:** total de requisições por rota/endpoint.
 
 ### 3️⃣ Total de vendas por produto --- `TotalSalesByProduct.java`
 
-Entrada: `sales.csv`\
-Saída: faturamento total por produto.
+**Entrada:** `sales.csv`\
+**Saída:** faturamento total por produto.
 
 ### 4️⃣ Contagem de hashtags --- `HashtagCount.java`
 
-Entrada: `tweets.txt`\
-Saída: contagem de hashtags.
+**Entrada:** `tweets.txt`\
+**Saída:** contagem de hashtags nos tweets.
 
 ### 5️⃣ Média por sensor (IoT) --- `SensorAverages.java`
 
-Entrada: `sensors.csv`\
-Saída: média das leituras por sensor.
+**Entrada:** `sensors.csv`\
+**Saída:** média das leituras por sensor.
 
 ------------------------------------------------------------------------
 
@@ -68,7 +69,7 @@ chmod +x build.sh
 ./build.sh
 ```
 
-Isso gerará:
+Gerará:
 
     hadoop-mapreduce-examples.jar
 
@@ -76,38 +77,40 @@ Isso gerará:
 
 ## ▶️ Execução dos jobs
 
-Antes, envie os arquivos para o HDFS:
+### 1. Enviar arquivos para o HDFS
 
 ``` bash
 hdfs dfs -mkdir -p /data
 hdfs dfs -put input/* /data
 ```
 
-### Média de notas
+### 2. Executar os jobs
+
+#### Média de notas
 
 ``` bash
 hadoop jar hadoop-mapreduce-examples.jar average.AverageGrade /data/grades.txt /out/grades
 ```
 
-### Contagem de endpoints
+#### Contagem de endpoints
 
 ``` bash
 hadoop jar hadoop-mapreduce-examples.jar logs.EndpointCount /data/logs.txt /out/logs
 ```
 
-### Total de vendas
+#### Total de vendas
 
 ``` bash
 hadoop jar hadoop-mapreduce-examples.jar sales.TotalSalesByProduct /data/sales.csv /out/sales
 ```
 
-### Contagem de hashtags
+#### Contagem de hashtags
 
 ``` bash
 hadoop jar hadoop-mapreduce-examples.jar twitter.HashtagCount /data/tweets.txt /out/hashtags
 ```
 
-### Média por sensor
+#### Média por sensor
 
 ``` bash
 hadoop jar hadoop-mapreduce-examples.jar sensors.SensorAverages /data/sensors.csv /out/sensors
@@ -125,4 +128,5 @@ hadoop jar hadoop-mapreduce-examples.jar sensors.SensorAverages /data/sensors.cs
 
 ## 📜 Licença
 
-MIT License --- livre para uso acadêmico e profissional.
+Distribuído sob a licença **MIT** --- livre para uso acadêmico e
+profissional.
