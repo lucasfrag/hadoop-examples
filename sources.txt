@@ -1,0 +1,5 @@
+src/main/java/logs/EndpointCount.java
+src/main/java/average/AverageGrade.java
+src/main/java/twitter/HashtagCount.java
+src/main/java/sensors/SensorAverages.java
+src/main/java/sales/TotalSalesByProduct.java
