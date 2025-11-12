@@ -1,132 +1,140 @@
-# Hadoop MapReduce Examples
+# 🚀 Hadoop Examples
 
-Este repositório reúne uma coleção de jobs **MapReduce modernos**, ideais para estudo, aulas, pesquisas e inclusão em portfólio profissional.
-
-------------------------------------------------------------------------
-
-## 📁 Estrutura do projeto
-
-    hadoop-mapreduce-examples/
-    ├── input/
-    │   ├── grades.txt
-    │   ├── logs.txt
-    │   ├── sales.csv
-    │   ├── tweets.txt
-    │   └── sensors.csv
-    ├── src/
-    │   └── main/
-    │       └── java/
-    │           ├── average/
-    │           │   └── AverageGrade.java
-    │           ├── logs/
-    │           │   └── EndpointCount.java
-    │           ├── sales/
-    │           │   └── TotalSalesByProduct.java
-    │           ├── twitter/
-    │           │   └── HashtagCount.java
-    │           └── sensors/
-    │               └── SensorAverages.java
-    ├── build.sh
-    └── README.md
+This repository brings together a collection of **modern MapReduce jobs**, ideal for study, teaching, research, and inclusion in professional portfolios.
 
 ------------------------------------------------------------------------
 
-## 📦 Jobs incluídos
+## 📁 Project Structure
 
-### 1️⃣ Média de notas por aluno --- `AverageGrade.java`
-
-**Entrada:** `grades.txt`\
-**Saída:** média das notas por aluno.
-
-### 2️⃣ Contagem de acessos por endpoint --- `EndpointCount.java`
-
-**Entrada:** `logs.txt`\
-**Saída:** total de requisições por rota/endpoint.
-
-### 3️⃣ Total de vendas por produto --- `TotalSalesByProduct.java`
-
-**Entrada:** `sales.csv`\
-**Saída:** faturamento total por produto.
-
-### 4️⃣ Contagem de hashtags --- `HashtagCount.java`
-
-**Entrada:** `tweets.txt`\
-**Saída:** contagem de hashtags nos tweets.
-
-### 5️⃣ Média por sensor (IoT) --- `SensorAverages.java`
-
-**Entrada:** `sensors.csv`\
-**Saída:** média das leituras por sensor.
+```text
+hadoop-examples/
+├── input/
+│   ├── grades.txt
+│   ├── logs.txt
+│   ├── sales.csv
+│   ├── tweets.txt
+│   └── sensors.csv
+├── src/
+│   └── main/
+│       └── java/
+│           ├── average/
+│           │   └── AverageGrade.java
+│           ├── logs/
+│           │   └── EndpointCount.java
+│           ├── sales/
+│           │   └── TotalSalesByProduct.java
+│           ├── twitter/
+│           │   └── HashtagCount.java
+│           └── sensors/
+│               └── SensorAverages.java
+├── build.sh
+└── README.md
+```
 
 ------------------------------------------------------------------------
 
-## 🏗 Compilação
+## 📦 Included Jobs
 
-Execute o script:
+### 1️⃣ Average grade per student — `AverageGrade.java`
 
-``` bash
+**Input:** `grades.txt`  
+**Output:** average grade per student.
+
+### 2️⃣ Endpoint access count — `EndpointCount.java`
+
+**Input:** `logs.txt`  
+**Output:** total number of requests per route/endpoint.
+
+### 3️⃣ Total sales by product — `TotalSalesByProduct.java`
+
+**Input:** `sales.csv`  
+**Output:** total revenue per product.
+
+### 4️⃣ Hashtag count — `HashtagCount.java`
+
+**Input:** `tweets.txt`  
+**Output:** count of hashtags in tweets.
+
+### 5️⃣ Sensor averages (IoT) — `SensorAverages.java`
+
+**Input:** `sensors.csv`  
+**Output:** average readings per sensor.
+
+------------------------------------------------------------------------
+
+## 🏗 Build
+
+Run the script:
+
+```bash
 chmod +x build.sh
 ./build.sh
 ```
 
-Gerará:
+This will generate:
 
-    hadoop-mapreduce-examples.jar
+```
+hadoop-examples.jar
+```
 
 ------------------------------------------------------------------------
 
-## ▶️ Execução dos jobs
+## ▶️ Running the Jobs
 
-### 1. Enviar arquivos para o HDFS
+### 1. Upload input files to HDFS
 
-``` bash
+```bash
 hdfs dfs -mkdir -p /data
 hdfs dfs -put input/* /data
 ```
 
-### 2. Executar os jobs
+### 2. Run the jobs
 
-#### Média de notas
+You have two options:
 
-``` bash
-hadoop jar hadoop-mapreduce-examples.jar average.AverageGrade /data/grades.txt /out/grades
+#### ✅ Run all jobs at once
+
+```bash
+./run-all.sh
 ```
 
-#### Contagem de endpoints
+#### 🎯 Run one job at a time
 
-``` bash
-hadoop jar hadoop-mapreduce-examples.jar logs.EndpointCount /data/logs.txt /out/logs
+##### Average grades  
+```bash
+hadoop jar hadoop-examples.jar average.AverageGrade /data/grades.txt /out/grades
 ```
 
-#### Total de vendas
-
-``` bash
-hadoop jar hadoop-mapreduce-examples.jar sales.TotalSalesByProduct /data/sales.csv /out/sales
+##### Endpoint count  
+```bash
+hadoop jar hadoop-examples.jar logs.EndpointCount /data/logs.txt /out/logs
 ```
 
-#### Contagem de hashtags
-
-``` bash
-hadoop jar hadoop-mapreduce-examples.jar twitter.HashtagCount /data/tweets.txt /out/hashtags
+##### Total sales  
+```bash
+hadoop jar hadoop-examples.jar sales.TotalSalesByProduct /data/sales.csv /out/sales
 ```
 
-#### Média por sensor
+##### Hashtag count  
+```bash
+hadoop jar hadoop-examples.jar twitter.HashtagCount /data/tweets.txt /out/hashtags
+```
 
-``` bash
-hadoop jar hadoop-mapreduce-examples.jar sensors.SensorAverages /data/sensors.csv /out/sensors
+##### Sensor averages  
+```bash
+hadoop jar hadoop-examples.jar sensors.SensorAverages /data/sensors.csv /out/sensors
 ```
 
 ------------------------------------------------------------------------
 
-## 📚 Requisitos
+## 📚 Requirements
 
--   Java 8+
--   Hadoop 3.3+
--   Ambiente configurado (Standalone, Pseudo-Distributed ou Docker)
+- Java 8+
+- Hadoop 3.3+
+- Properly configured environment (Standalone, Pseudo-Distributed, or Docker)
 
 ------------------------------------------------------------------------
 
-## 📜 Licença
+## 📜 License
 
-Distribuído sob a licença **MIT** --- livre para uso acadêmico e
-profissional.
+Distributed under the **MIT License** — free for academic and professional use.
